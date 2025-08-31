@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quantum Computing Fundamentals - Interactive Learning</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <h2>Quantum Quest</h2>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#home" class="nav-link" data-section="home">Home</a></li>
+                <li><a href="#introduction" class="nav-link" data-section="introduction">Introduction</a></li>
+                <li><a href="#superposition" class="nav-link" data-section="superposition">Superposition</a></li>
+                <li><a href="#entanglement" class="nav-link" data-section="entanglement">Entanglement</a></li>
+                <li><a href="#gates" class="nav-link" data-section="gates">Quantum Gates</a></li>
+                <li><a href="#applications" class="nav-link" data-section="applications">Applications</a></li>
+                <li><a href="#quiz" class="nav-link" data-section="quiz">Quiz</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="progress-bar">
+        <div class="progress-fill" id="progressFill"></div>
+    </div>
+
+    <main class="main-container">
+        <!-- Home Section -->
+        <section id="home" class="section active">
+            <div class="container">
+                <div class="hero">
+                    <h1>Welcome to Quantum Computing Fundamentals</h1>
+                    <p>Explore the fascinating world of quantum computing through interactive learning experiences. Discover how quantum mechanics revolutionizes computation.</p>
+                    <div class="quantum-animation">
+                        <div class="particle"></div>
+                        <div class="particle"></div>
+                        <div class="particle"></div>
+                    </div>
+                    <button class="btn btn--primary btn--lg" onclick="startJourney()">Begin Your Quantum Journey</button>
+                </div>
+                <div class="progress-overview">
+                    <h3>Your Progress</h3>
+                    <div class="progress-grid">
+                        <div class="progress-item" data-section="introduction">
+                            <div class="progress-icon">🔬</div>
+                            <span>Introduction</span>
+                        </div>
+                        <div class="progress-item" data-section="superposition">
+                            <div class="progress-icon">🌀</div>
+                            <span>Superposition</span>
+                        </div>
+                        <div class="progress-item" data-section="entanglement">
+                            <div class="progress-icon">🔗</div>
+                            <span>Entanglement</span>
+                        </div>
+                        <div class="progress-item" data-section="gates">
+                            <div class="progress-icon">⚡</div>
+                            <span>Gates</span>
+                        </div>
+                        <div class="progress-item" data-section="applications">
+                            <div class="progress-icon">🚀</div>
+                            <span>Applications</span>
+                        </div>
+                        <div class="progress-item" data-section="quiz">
+                            <div class="progress-icon">🎓</div>
+                            <span>Quiz</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Introduction Section -->
+        <section id="introduction" class="section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>What is Quantum Computing?</h2>
+                    <p>Quantum computing is a revolutionary computing paradigm that leverages the principles of quantum mechanics to process information in fundamentally different ways than classical computers.</p>
+                </div>
+                
+                <div class="content-grid">
+                    <div class="content-text">
+                        <h3>Key Differences</h3>
+                        <ul>
+                            <li>Uses quantum mechanics principles</li>
+                            <li>Qubits can be in multiple states simultaneously</li>
+                            <li>Exponentially more powerful for certain problems</li>
+                            <li>Still in early development stage</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="interactive-game">
+                        <h3>Bit vs Qubit Interactive</h3>
+                        <div class="bit-qubit-game">
+                            <div class="bit-section">
+                                <h4>Classical Bit</h4>
+                                <div class="bit-display" id="classicalBit">0</div>
+                                <button class="btn btn--secondary" onclick="flipBit()">Flip Bit</button>
+                            </div>
+                            <div class="qubit-section">
+                                <h4>Quantum Qubit</h4>
+                                <div class="qubit-display" id="quantumQubit">
+                                    <div class="qubit-sphere"></div>
+                                    <div class="superposition-text">|0⟩ + |1⟩</div>
+                                </div>
+                                <button class="btn btn--primary" onclick="measureQubit()">Measure Qubit</button>
+                                <button class="btn btn--outline" onclick="resetQubit()">Reset to Superposition</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <button class="btn btn--primary next-section" onclick="nextSection('superposition')">Continue to Superposition →</button>
+            </div>
+        </section>
+
+        <!-- Superposition Section -->
+        <section id="superposition" class="section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Quantum Superposition</h2>
+                    <p>Superposition is the ability of quantum systems to exist in multiple states simultaneously until measured. Think of a coin spinning in the air - until it lands, it's neither heads nor tails but both.</p>
+                </div>
+                
+                <div class="content-grid">
+                    <div class="content-text">
+                        <h3>Key Concepts</h3>
+                        <ul>
+                            <li>Qubits can be 0, 1, or both simultaneously</li>
+                            <li>Measurement collapses the superposition</li>
+                            <li>Enables quantum parallelism</li>
+                            <li>Foundation of quantum computing power</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="interactive-game">
+                        <h3>Superposition Simulator</h3>
+                        <div class="superposition-game">
+                            <div class="coin-container">
+                                <div class="quantum-coin" id="quantumCoin">
+                                    <div class="coin-face heads">H</div>
+                                    <div class="coin-face tails">T</div>
+                                </div>
+                                <div class="probability-display">
+                                    <div class="prob-bar">
+                                        <div class="prob-heads">50% |0⟩</div>
+                                        <div class="prob-tails">50% |1⟩</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="controls">
+                                <button class="btn btn--primary" onclick="measureSuperposition()">Measure State</button>
+                                <button class="btn btn--outline" onclick="resetSuperposition()">Reset to Superposition</button>
+                            </div>
+                            <div class="measurement-result" id="measurementResult"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <button class="btn btn--primary next-section" onclick="nextSection('entanglement')">Continue to Entanglement →</button>
+            </div>
+        </section>
+
+        <!-- Entanglement Section -->
+        <section id="entanglement" class="section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Quantum Entanglement</h2>
+                    <p>Quantum entanglement occurs when particles become correlated in such a way that measuring one instantly affects its partner, regardless of distance. Einstein called this "spooky action at a distance".</p>
+                </div>
+                
+                <div class="content-grid">
+                    <div class="content-text">
+                        <h3>Key Properties</h3>
+                        <ul>
+                            <li>Particles become mysteriously connected</li>
+                            <li>Measurement of one affects the other instantly</li>
+                            <li>No classical analog exists</li>
+                            <li>Essential for quantum algorithms</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="interactive-game">
+                        <h3>Entangled Particles</h3>
+                        <div class="entanglement-game">
+                            <div class="particles-container">
+                                <div class="particle-group">
+                                    <div class="entangled-particle" id="particle1" onclick="interactParticle(1)">
+                                        <div class="particle-core"></div>
+                                        <div class="particle-glow"></div>
+                                    </div>
+                                    <div class="particle-label">Particle A</div>
+                                </div>
+                                <div class="entanglement-link">
+                                    <div class="quantum-connection"></div>
+                                </div>
+                                <div class="particle-group">
+                                    <div class="entangled-particle" id="particle2" onclick="interactParticle(2)">
+                                        <div class="particle-core"></div>
+                                        <div class="particle-glow"></div>
+                                    </div>
+                                    <div class="particle-label">Particle B</div>
+                                </div>
+                            </div>
+                            <div class="entanglement-info">
+                                <p>Click on either particle to see instantaneous correlation!</p>
+                                <button class="btn btn--outline" onclick="resetEntanglement()">Reset Entanglement</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <button class="btn btn--primary next-section" onclick="nextSection('gates')">Continue to Quantum Gates →</button>
+            </div>
+        </section>
+
+        <!-- Quantum Gates Section -->
+        <section id="gates" class="section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Quantum Gates</h2>
+                    <p>Quantum gates are the building blocks of quantum circuits. They perform operations on qubits to manipulate their quantum states, creating and manipulating superposition and entanglement.</p>
+                </div>
+                
+                <div class="content-grid">
+                    <div class="content-text">
+                        <h3>Basic Gates</h3>
+                        <div class="gate-info">
+                            <div class="gate-item">
+                                <strong>X Gate (NOT):</strong> Flips the qubit state
+                            </div>
+                            <div class="gate-item">
+                                <strong>H Gate (Hadamard):</strong> Creates superposition
+                            </div>
+                            <div class="gate-item">
+                                <strong>CNOT Gate:</strong> Creates entanglement between qubits
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="interactive-game">
+                        <h3>Gate Builder</h3>
+                        <div class="gate-builder">
+                            <div class="available-gates">
+                                <div class="gate" draggable="true" data-gate="X">X</div>
+                                <div class="gate" draggable="true" data-gate="H">H</div>
+                                <div class="gate" draggable="true" data-gate="CNOT">⊕</div>
+                            </div>
+                            <div class="circuit-canvas">
+                                <div class="qubit-line">
+                                    <span class="qubit-label">|0⟩</span>
+                                    <div class="gate-slot" data-qubit="0" data-position="0"></div>
+                                    <div class="gate-slot" data-qubit="0" data-position="1"></div>
+                                    <div class="gate-slot" data-qubit="0" data-position="2"></div>
+                                    <span class="output-state" id="output0">|0⟩</span>
+                                </div>
+                                <div class="qubit-line">
+                                    <span class="qubit-label">|0⟩</span>
+                                    <div class="gate-slot" data-qubit="1" data-position="0"></div>
+                                    <div class="gate-slot" data-qubit="1" data-position="1"></div>
+                                    <div class="gate-slot" data-qubit="1" data-position="2"></div>
+                                    <span class="output-state" id="output1">|0⟩</span>
+                                </div>
+                            </div>
+                            <div class="circuit-controls">
+                                <button class="btn btn--primary" onclick="runCircuit()">Run Circuit</button>
+                                <button class="btn btn--outline" onclick="clearCircuit()">Clear Circuit</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <button class="btn btn--primary next-section" onclick="nextSection('applications')">Continue to Applications →</button>
+            </div>
+        </section>
+
+        <!-- Applications Section -->
+        <section id="applications" class="section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Real-World Applications</h2>
+                    <p>Quantum computing has the potential to revolutionize many fields, from cryptography to drug discovery. Let's explore the main application areas.</p>
+                </div>
+                
+                <div class="content-grid">
+                    <div class="content-text">
+                        <h3>Major Applications</h3>
+                        <div class="applications-list">
+                            <div class="app-item">
+                                <strong>Cryptography:</strong> Breaking current encryption and creating quantum-safe security
+                            </div>
+                            <div class="app-item">
+                                <strong>Optimization:</strong> Solving complex optimization problems in logistics and finance
+                            </div>
+                            <div class="app-item">
+                                <strong>Drug Discovery:</strong> Simulating molecular interactions for pharmaceutical research
+                            </div>
+                            <div class="app-item">
+                                <strong>Machine Learning:</strong> Enhancing AI algorithms with quantum speedup
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="interactive-game">
+                        <h3>Application Matcher</h3>
+                        <div class="matcher-game">
+                            <div class="applications-column">
+                                <h4>Applications</h4>
+                                <div class="match-item" draggable="true" data-app="cryptography">
+                                    🔐 Cryptography
+                                </div>
+                                <div class="match-item" draggable="true" data-app="optimization">
+                                    📊 Optimization
+                                </div>
+                                <div class="match-item" draggable="true" data-app="drug-discovery">
+                                    💊 Drug Discovery
+                                </div>
+                                <div class="match-item" draggable="true" data-app="machine-learning">
+                                    🤖 Machine Learning
+                                </div>
+                            </div>
+                            <div class="algorithms-column">
+                                <h4>Algorithms</h4>
+                                <div class="match-target" data-target="cryptography">
+                                    Shor's Algorithm
+                                </div>
+                                <div class="match-target" data-target="optimization">
+                                    Quantum Annealing
+                                </div>
+                                <div class="match-target" data-target="drug-discovery">
+                                    VQE Algorithm
+                                </div>
+                                <div class="match-target" data-target="machine-learning">
+                                    QML Algorithms
+                                </div>
+                            </div>
+                        </div>
+                        <div class="matcher-score">
+                            <span>Matches: <span id="matchScore">0/4</span></span>
+                            <button class="btn btn--outline" onclick="resetMatcher()">Reset</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <button class="btn btn--primary next-section" onclick="nextSection('quiz')">Take the Final Quiz →</button>
+            </div>
+        </section>
+
+        <!-- Quiz Section -->
+        <section id="quiz" class="section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Final Quiz</h2>
+                    <p>Test your knowledge of quantum computing fundamentals!</p>
+                </div>
+                
+                <div class="quiz-container">
+                    <div class="quiz-progress">
+                        <span>Question <span id="currentQuestion">1</span> of <span id="totalQuestions">5</span></span>
+                    </div>
+                    
+                    <div class="quiz-question" id="quizQuestion">
+                        <h3 id="questionText"></h3>
+                        <div class="quiz-options" id="quizOptions"></div>
+                    </div>
+                    
+                    <div class="quiz-feedback hidden" id="quizFeedback">
+                        <div class="feedback-content">
+                            <div class="feedback-icon" id="feedbackIcon"></div>
+                            <p id="feedbackText"></p>
+                            <p class="explanation" id="feedbackExplanation"></p>
+                        </div>
+                    </div>
+                    
+                    <div class="quiz-controls">
+                        <button class="btn btn--outline" id="prevBtn" onclick="previousQuestion()" disabled>Previous</button>
+                        <button class="btn btn--primary" id="nextBtn" onclick="nextQuestion()">Next</button>
+                    </div>
+                </div>
+                
+                <div class="quiz-results hidden" id="quizResults">
+                    <div class="results-content">
+                        <h3>Quiz Complete!</h3>
+                        <div class="final-score">
+                            <span class="score-text">Your Score: <span id="finalScore">0</span>/5</span>
+                        </div>
+                        <div class="certificate">
+                            <h4>🎓 Certificate of Completion</h4>
+                            <p>Congratulations! You have successfully completed the Quantum Computing Fundamentals course.</p>
+                        </div>
+                        <button class="btn btn--primary" onclick="restartQuiz()">Retake Quiz</button>
+                        <button class="btn btn--outline" onclick="goHome()">Back to Home</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="app.js"></script>
+</body>
+</html>
